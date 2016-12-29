@@ -17,13 +17,27 @@ class Board {
         // Create row arrays
         rows = Array<Array<Piece?>>()
         
-        for _ in 1...10 {
+        for _ in 0...9 {
+            
             let rowArray = Array<Piece?>(repeating: nil, count: 10)
+            
             rows.append(rowArray)
+            
+        }
+
+        for rowCount in 1...10 {
+        
+            var rowArray = rows[rowCount]
+            
+            for colIndex in 0...rowCount {
+                let piece = Piece(withType: "blank")
+                rowArray.insert(piece, at: colIndex)
+            }
+            
         }
         
     }
-    
+
     func setPiece(piece:Piece?, atRow theRow: Int, atCol theCol: Int) -> Bool {
         
         if (theRow > 9 || theCol > 9) {

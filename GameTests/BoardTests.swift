@@ -74,4 +74,32 @@ class BoardTests: XCTestCase {
         
     }
     
+    func test_WhenBoardIsCreated_ShouldHaveHalfBlocked() {
+        
+        let boardUnderTest = Board()
+        
+        for rowIndex in 0...9 {
+            
+            let rowUnderTest = boardUnderTest.rows[rowIndex]
+            
+            let targetNumberOfBlocked = 10 - rowIndex
+            
+            var actualNumberOfBlocked = 0
+            
+            for colIndex in 0...9 {
+                
+                let colContent = rowUnderTest[colIndex]
+                
+                if colContent != nil {
+                    actualNumberOfBlocked += 1
+                }
+                
+            }
+            
+            XCTAssertEqual(actualNumberOfBlocked, targetNumberOfBlocked, "expected \(targetNumberOfBlocked) blocked, got \(actualNumberOfBlocked)")
+            
+        }
+        
+    }
+    
 }
