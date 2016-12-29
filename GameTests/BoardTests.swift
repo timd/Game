@@ -36,17 +36,22 @@ class BoardTests: XCTestCase {
         
     }
     
-    func test_WhenSettingPiece_ShouldHaveCorrectPieceInBoard() {
+    func test_WhenSettingAPieceWithinBounds_ShouldReturnTrue() {
+
+        let boardUnderTest = Board()
+        let piece = Piece(withType: "foo")
+        let result = boardUnderTest.setPiece(piece: piece, atRow: 5, atCol: 5)
+        XCTAssertTrue(result)
+        
+    }
+    
+    func test_WhenSettingPiece_ShouldHaveCorrectPieceOnBoard() {
         
         let boardUnderTest = Board()
-        
         let piece = Piece(withType: "foo")
-        
-        let result = boardUnderTest.setPiece(piece: piece, atRow: 5, atCol: 5)
+        let _ = boardUnderTest.setPiece(piece: piece, atRow: 5, atCol: 5)
         
         let pieceUnderTest = boardUnderTest.getPieceAt(row: 5, col: 5)
-        
-        XCTAssertTrue(result)
         XCTAssertNotNil(pieceUnderTest)
         
     }
