@@ -1,12 +1,13 @@
 //
-//  BoardTests.swift
-//  Game
+//  GameTests.swift
+//  GameTests
 //
 //  Created by Tim on 29/12/16.
 //  Copyright © 2016 duckett.de. All rights reserved.
 //
 
 import XCTest
+@testable import Game
 
 class BoardTests: XCTestCase {
     
@@ -20,19 +21,52 @@ class BoardTests: XCTestCase {
         super.tearDown()
     }
     
-    func testBoardSize() {
+    func test_WhenCreatingBoard_ShouldHaveCorrectNumberOfRowsInBoard() {
+        let boardUnderTest = Board()
+        XCTAssertEqual(boardUnderTest.rows.count, 10, "Should have 10 rows, got \(boardUnderTest.rows.count)")
+    }
+    
+    func test_WhenCreatingBoard_ShouldHaveCorrectNumberOfColumnsInEachBoardRow() {
+        let boardUnderTest = Board()
         
-        // Board should be 10 x 10
-        
-        
+        for rowNumber in 0...boardUnderTest.rows.count - 1 {
+            let rowUnderTest = boardUnderTest.rows[rowNumber]
+            XCTAssertEqual(rowUnderTest.count, 10, "Should have 10 elements, got \(rowUnderTest.count)")
+        }
         
     }
     
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    func test_WhenSettingPiece_ShouldHaveCorrectPieceInBoard() {
+        
+        let boardUnderTest = Board()
+        
+        let piece = Piece(withType: "foo")
+        
+        let result = boardUnderTest.setPiece(piece: piece, atRow: 5, atCol: 5)
+        
+        let pieceUnderTest = boardUnderTest.getPieceAt(row: 5, col: 5)
+        
+        XCTAssertTrue(result)
+        XCTAssertNotNil(pieceUnderTest)
+        
+    }
+    
+    func test_WhenSettingAPieceOutOfBounds_TheBoardShouldReturnFalse() {
+        
+        let boardUnderTest = Board()
+        let piece = Piece(withType: "foo")
+        
+        let result = boardUnderTest.setPiece(piece: piece, atRow: 11, atCol: 11)
+        
+        XCTAssertFalse(result)
+    }
+    
+    func test_WhenGettingPieceOutOfBounds_ShouldReturnNil() {
+        
+        let boardUnderTest = Board()
+        let result = boardUnderTest.getPieceAt(row: 11, col: 11)
+        XCTAssertNil(result)
+        
     }
     
 }

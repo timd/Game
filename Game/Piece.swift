@@ -7,13 +7,26 @@
 //
 
 import Foundation
+import UIKit
 
 class Piece {
     
-    var type = "blank"
+    var type: String
+    
+    var rows: Array<Array<UIColor?>>
     
     init(withType: String) {
+        
         self.type = withType
+        
+        // Create row arrays
+        rows = Array<Array<UIColor?>>()
+
+        for _ in 1...5 {
+            let rowArray = Array<UIColor?>(repeating: nil, count: 5)
+            rows.append(rowArray)
+        }
+        
     }
     
 }
