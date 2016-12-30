@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		225FE0AE1E166BF40025290A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225FE0AD1E166BF40025290A /* Constants.swift */; };
+		225FE0B01E167F7A0025290A /* PieceCreationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225FE0AF1E167F7A0025290A /* PieceCreationTests.swift */; };
 		226AF8611E15802C0027DA58 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226AF8601E15802C0027DA58 /* AppDelegate.swift */; };
 		226AF8631E15802C0027DA58 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226AF8621E15802C0027DA58 /* ViewController.swift */; };
 		226AF8661E15802C0027DA58 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 226AF8641E15802C0027DA58 /* Main.storyboard */; };
@@ -29,6 +31,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		225FE0AD1E166BF40025290A /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		225FE0AF1E167F7A0025290A /* PieceCreationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PieceCreationTests.swift; path = ../PieceCreationTests.swift; sourceTree = "<group>"; };
 		226AF85D1E15802C0027DA58 /* Game.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Game.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		226AF8601E15802C0027DA58 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		226AF8621E15802C0027DA58 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -65,6 +69,7 @@
 		226AF8541E15802B0027DA58 = {
 			isa = PBXGroup;
 			children = (
+				225FE0AD1E166BF40025290A /* Constants.swift */,
 				226AF85F1E15802C0027DA58 /* Game */,
 				226AF8741E15802C0027DA58 /* GameTests */,
 				226AF85E1E15802C0027DA58 /* Products */,
@@ -97,6 +102,7 @@
 		226AF8741E15802C0027DA58 /* GameTests */ = {
 			isa = PBXGroup;
 			children = (
+				225FE0AF1E167F7A0025290A /* PieceCreationTests.swift */,
 				226AF8751E15802C0027DA58 /* BoardTests.swift */,
 				226AF8771E15802C0027DA58 /* Info.plist */,
 				226AF8871E158DFB0027DA58 /* PieceTests.swift */,
@@ -216,6 +222,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				225FE0AE1E166BF40025290A /* Constants.swift in Sources */,
 				226AF8861E1582050027DA58 /* Piece.swift in Sources */,
 				226AF8631E15802C0027DA58 /* ViewController.swift in Sources */,
 				226AF8611E15802C0027DA58 /* AppDelegate.swift in Sources */,
@@ -228,6 +235,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				226AF8881E158DFB0027DA58 /* PieceTests.swift in Sources */,
+				225FE0B01E167F7A0025290A /* PieceCreationTests.swift in Sources */,
 				226AF8761E15802C0027DA58 /* BoardTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -424,6 +432,7 @@
 				226AF87C1E15802C0027DA58 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		226AF87D1E15802C0027DA58 /* Build configuration list for PBXNativeTarget "GameTests" */ = {
 			isa = XCConfigurationList;
@@ -432,6 +441,7 @@
 				226AF87F1E15802C0027DA58 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

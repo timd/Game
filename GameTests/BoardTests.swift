@@ -39,8 +39,8 @@ class BoardTests: XCTestCase {
     func test_WhenSettingAPieceWithinBounds_ShouldReturnTrue() {
 
         let boardUnderTest = Board()
-        let piece = Piece(withType: "foo")
-        let result = boardUnderTest.setPiece(piece: piece, atRow: 5, atCol: 5)
+        let piece = Piece(withType: Constants.TwoByTwo, andId: 1)
+        let result = boardUnderTest.setPiece(piece: piece, atRow: 1, atCol: 1)
         XCTAssertTrue(result)
         
     }
@@ -48,7 +48,7 @@ class BoardTests: XCTestCase {
     func test_WhenSettingPiece_ShouldHaveCorrectPieceOnBoard() {
         
         let boardUnderTest = Board()
-        let piece = Piece(withType: "foo")
+        let piece = Piece(withType: Constants.TwoByTwo, andId: 1)
         let _ = boardUnderTest.setPiece(piece: piece, atRow: 5, atCol: 5)
         
         let pieceUnderTest = boardUnderTest.getPieceAt(row: 5, col: 5)
@@ -59,7 +59,7 @@ class BoardTests: XCTestCase {
     func test_WhenSettingAPieceOutOfBounds_TheBoardShouldReturnFalse() {
         
         let boardUnderTest = Board()
-        let piece = Piece(withType: "foo")
+        let piece = Piece(withType: Constants.TwoByTwo, andId: 1)
         
         let result = boardUnderTest.setPiece(piece: piece, atRow: 11, atCol: 11)
         
@@ -74,6 +74,26 @@ class BoardTests: XCTestCase {
         
     }
     
+    func test_WhenTryingToPlaceAPieceOnABlockedLocation_ShouldReturnFalse() {
+        let boardUnderTest = Board()
+        let pieceToPlace = Piece(withType: Constants.TwoByTwo, andId: 1)
+        let result = boardUnderTest.setPiece(piece: pieceToPlace, atRow: 5, atCol: 9)
+        XCTAssertFalse(result)
+    }
+
+    func test_WhenTryingToPlaceAPieceOnABlockedLocation_ShouldNotPlacePiece() {
+        let boardUnderTest = Board()
+        let pieceToPlace = Piece(withType: Constants.TwoByTwo, andId: 1)
+        let _ = boardUnderTest.setPiece(piece: pieceToPlace, atRow: 5, atCol: 9)
+        
+        let testPiece = boardUnderTest.getPieceAt(row: 5, col: 9)
+        
+        XCTAssertNotNil(testPiece)
+
+        XCTAssertEqual(testPiece?.type, -1, "expected blank, got \(testPiece?.type)")
+        
+    }
+
     func test_WhenBoardIsCreated_ShouldHaveHalfBlocked() {
         
         let boardUnderTest = Board()
@@ -82,19 +102,17 @@ class BoardTests: XCTestCase {
             
             let rowUnderTest = boardUnderTest.rows[rowIndex]
             
+            let actualNumberOfBlocked = rowUnderTest.filter(
+                {
+                    if $0 == nil  {
+                        return true
+                    }else{
+                        return false
+                    }
+                    
+            }).count
+            
             let targetNumberOfBlocked = 10 - rowIndex
-            
-            var actualNumberOfBlocked = 0
-            
-            for colIndex in 0...9 {
-                
-                let colContent = rowUnderTest[colIndex]
-                
-                if colContent != nil {
-                    actualNumberOfBlocked += 1
-                }
-                
-            }
             
             XCTAssertEqual(actualNumberOfBlocked, targetNumberOfBlocked, "expected \(targetNumberOfBlocked) blocked, got \(actualNumberOfBlocked)")
             

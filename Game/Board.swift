@@ -17,25 +17,29 @@ class Board {
         // Create row arrays
         rows = Array<Array<Piece?>>()
         
-        for _ in 0...9 {
-            
-            let rowArray = Array<Piece?>(repeating: nil, count: 10)
-            
-            rows.append(rowArray)
-            
-        }
-
-        for rowCount in 1...10 {
+        let piece = Piece(withType: Constants.IllegalCellIdentifier, andId: 1)
         
-            var rowArray = rows[rowCount]
-            
-            for colIndex in 0...rowCount {
-                let piece = Piece(withType: "blank")
-                rowArray.insert(piece, at: colIndex)
-            }
-            
-        }
+        let rowArray0: Array<Piece?> = [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil]
+        let rowArray1: Array<Piece?> = [nil, nil, nil, nil, nil, nil, nil, nil, nil, piece]
+        let rowArray2: Array<Piece?> = [nil, nil, nil, nil, nil, nil, nil, nil, piece, piece]
+        let rowArray3: Array<Piece?> = [nil, nil, nil, nil, nil, nil, nil, piece, piece, piece]
+        let rowArray4: Array<Piece?> = [nil, nil, nil, nil, nil, nil, piece, piece, piece, piece]
+        let rowArray5: Array<Piece?> = [nil, nil, nil, nil, nil, piece, piece, piece, piece, piece]
+        let rowArray6: Array<Piece?> = [nil, nil, nil, nil, piece, piece, piece, piece, piece, piece]
+        let rowArray7: Array<Piece?> = [nil, nil, nil, piece, piece, piece, piece, piece, piece, piece]
+        let rowArray8: Array<Piece?> = [nil, nil, piece, piece, piece, piece, piece, piece, piece, piece]
+        let rowArray9: Array<Piece?> = [nil, piece, piece, piece, piece, piece, piece, piece, piece, piece]
         
+        rows.append(rowArray0)
+        rows.append(rowArray1)
+        rows.append(rowArray2)
+        rows.append(rowArray3)
+        rows.append(rowArray4)
+        rows.append(rowArray5)
+        rows.append(rowArray6)
+        rows.append(rowArray7)
+        rows.append(rowArray8)
+        rows.append(rowArray9)
     }
 
     func setPiece(piece:Piece?, atRow theRow: Int, atCol theCol: Int) -> Bool {
@@ -45,6 +49,13 @@ class Board {
         }
         
         var row = rows[theRow]
+        
+        let colContent = row[theCol]
+        
+        // Check if there is already a piece in place
+        if colContent != nil {
+            return false
+        }
         
         row[theCol] = piece
         
