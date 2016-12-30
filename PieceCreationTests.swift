@@ -25,8 +25,8 @@ class PieceCreationTests: XCTestCase {
         
         let pieceUnderTest = Piece(withType: Constants.TwoByTwo, andId: 1)
         
-        let expectedRow0 = [UIColor.green, UIColor.green, nil, nil]
-        let expectedRow1 = [UIColor.green, UIColor.green, nil, nil]
+        let expectedRow0 = [Constants.LightGreenColor, Constants.LightGreenColor, nil, nil]
+        let expectedRow1 = [Constants.LightGreenColor, Constants.LightGreenColor, nil, nil]
         let expectedRow2: [UIColor?] = [nil, nil, nil, nil]
         let expectedRow3: [UIColor?] = [nil, nil, nil, nil]
         let testArray = [expectedRow0, expectedRow1, expectedRow2, expectedRow3]
@@ -50,7 +50,7 @@ class PieceCreationTests: XCTestCase {
         
         let pieceUnderTest = Piece(withType: Constants.OneByFour, andId: 1)
         
-        let expectedRow0 = [UIColor.purple, nil, nil, nil]
+        let expectedRow0 = [Constants.PurpleColor, nil, nil, nil]
         let testArray = [expectedRow0, expectedRow0, expectedRow0, expectedRow0]
 
         testRows(pieceUnderTest: pieceUnderTest, testArray: testArray)
@@ -61,7 +61,7 @@ class PieceCreationTests: XCTestCase {
         
         let pieceUnderTest = Piece(withType: Constants.FourByOne, andId: 1)
         
-        let expectedRow0 = [UIColor.purple, UIColor.purple, UIColor.purple, UIColor.purple]
+        let expectedRow0 = [Constants.PurpleColor, Constants.PurpleColor, Constants.PurpleColor, Constants.PurpleColor]
         let expectedRow1: [UIColor?] = [nil, nil, nil, nil]
         let testArray = [expectedRow0, expectedRow1, expectedRow1, expectedRow1]
         
@@ -71,10 +71,10 @@ class PieceCreationTests: XCTestCase {
 
     func test_WhenCreatingFourByOneEll_ShouldHaveTheCorrectLayout() {
         
-        let pieceUnderTest = Piece(withType: Constants.OneByFourEll, andId: 1)
+        let pieceUnderTest = Piece(withType: Constants.TwoByFourEll, andId: 1)
         
-        let expectedRow0 = [UIColor.blue, nil, nil, nil]
-        let expectedRow1: [UIColor?] = [UIColor.blue, UIColor.blue, nil, nil]
+        let expectedRow0 = [Constants.DarkBlueColor, nil, nil, nil]
+        let expectedRow1: [UIColor?] = [Constants.DarkBlueColor, Constants.DarkBlueColor, nil, nil]
         let testArray = [expectedRow0, expectedRow0, expectedRow0, expectedRow1]
         
         testRows(pieceUnderTest: pieceUnderTest, testArray: testArray)
@@ -85,8 +85,8 @@ class PieceCreationTests: XCTestCase {
         
         let pieceUnderTest = Piece(withType: Constants.TwoByTwoEll, andId: 1)
         
-        let expectedRow0 = [UIColor.white, nil, nil, nil]
-        let expectedRow1 = [UIColor.white, UIColor.white, nil, nil]
+        let expectedRow0 = [Constants.WhiteColor, nil, nil, nil]
+        let expectedRow1 = [Constants.WhiteColor, Constants.WhiteColor, nil, nil]
         let expectedRow2: [UIColor?] = [nil, nil, nil, nil]
         
         let testArray = [expectedRow0, expectedRow1, expectedRow2, expectedRow2]
@@ -99,8 +99,8 @@ class PieceCreationTests: XCTestCase {
         
         let pieceUnderTest = Piece(withType: Constants.OneByThreeEll, andId: 1)
         
-        let expectedRow0 = [UIColor.orange, nil, nil, nil]
-        let expectedRow1 = [UIColor.orange, UIColor.orange, nil, nil]
+        let expectedRow0 = [Constants.OrangeColor, nil, nil, nil]
+        let expectedRow1 = [Constants.OrangeColor, Constants.OrangeColor, nil, nil]
         let expectedRow2: [UIColor?] = [nil, nil, nil, nil]
         
         let testArray = [expectedRow0, expectedRow0, expectedRow1, expectedRow2]
@@ -113,8 +113,8 @@ class PieceCreationTests: XCTestCase {
         
         let pieceUnderTest = Piece(withType: Constants.ThreeByThreeEll, andId: 1)
         
-        let expectedRow0 = [UIColor.blue, nil, nil, nil]
-        let expectedRow1 = [UIColor.blue, UIColor.blue, UIColor.blue, nil]
+        let expectedRow0 = [Constants.LightBlueColor, nil, nil, nil]
+        let expectedRow1 = [Constants.LightBlueColor, Constants.LightBlueColor, Constants.LightBlueColor, nil]
         let expectedRow2: [UIColor?] = [nil, nil, nil, nil]
         
         let testArray = [expectedRow0, expectedRow0, expectedRow1, expectedRow2]
@@ -127,8 +127,8 @@ class PieceCreationTests: XCTestCase {
         
         let pieceUnderTest = Piece(withType: Constants.TwoByThreeCee, andId: 1)
         
-        let expectedRow0 = [UIColor.yellow, UIColor.yellow, nil, nil]
-        let expectedRow1 = [UIColor.yellow, nil, nil, nil]
+        let expectedRow0 = [Constants.YellowColor, Constants.YellowColor, nil, nil]
+        let expectedRow1 = [Constants.YellowColor, nil, nil, nil]
         let expectedRow2: [UIColor?] = [nil, nil, nil, nil]
         
         let testArray = [expectedRow0, expectedRow1, expectedRow0, expectedRow2]
@@ -141,8 +141,8 @@ class PieceCreationTests: XCTestCase {
         
         let pieceUnderTest = Piece(withType: Constants.TwoByThreeBee, andId: 1)
         
-        let expectedRow0 = [UIColor.red, nil, nil, nil]
-        let expectedRow1 = [UIColor.red, UIColor.red, nil, nil]
+        let expectedRow0 = [Constants.RedColor, nil, nil, nil]
+        let expectedRow1 = [Constants.RedColor, Constants.RedColor, nil, nil]
         let expectedRow2: [UIColor?] = [nil, nil, nil, nil]
         
         let testArray = [expectedRow0, expectedRow1, expectedRow1, expectedRow2]
@@ -155,11 +155,51 @@ class PieceCreationTests: XCTestCase {
         
         let pieceUnderTest = Piece(withType: Constants.ThreeByThreeCross, andId: 1)
         
-        let expectedRow0 = [nil, UIColor.gray, nil, nil]
-        let expectedRow1 = [UIColor.gray, UIColor.gray, UIColor.gray, nil]
+        let expectedRow0 = [nil, Constants.GreyColor, nil, nil]
+        let expectedRow1 = [Constants.GreyColor, Constants.GreyColor, Constants.GreyColor, nil]
         let expectedRow2: [UIColor?] = [nil, nil, nil, nil]
         
         let testArray = [expectedRow0, expectedRow1, expectedRow0, expectedRow2]
+        
+        testRows(pieceUnderTest: pieceUnderTest, testArray: testArray)
+        
+    }
+
+    func test_WhenCreatingTwoByFourTee_ShouldHaveTheCorrectLayout() {
+        
+        let pieceUnderTest = Piece(withType: Constants.TwoByFourTee, andId: 1)
+        
+        let expectedRow0 = [Constants.LightPinkColor, nil, nil, nil]
+        let expectedRow1 = [Constants.LightPinkColor, Constants.LightPinkColor, nil, nil]
+        
+        let testArray = [expectedRow0, expectedRow1, expectedRow0, expectedRow0]
+        
+        testRows(pieceUnderTest: pieceUnderTest, testArray: testArray)
+        
+    }
+    
+    func test_WhenCreatingTwoByFourWhy_ShouldHaveTheCorrectLayout() {
+        
+        let pieceUnderTest = Piece(withType: Constants.TwoByFourWhy, andId: 1)
+        
+        let expectedRow0 = [Constants.DarkGreenColor, nil, nil, nil]
+        let expectedRow1 = [Constants.DarkGreenColor, Constants.DarkGreenColor, nil, nil]
+        let expectedRow2 = [nil, Constants.DarkGreenColor, nil, nil]
+        let testArray = [expectedRow0, expectedRow1, expectedRow2, expectedRow2]
+        
+        testRows(pieceUnderTest: pieceUnderTest, testArray: testArray)
+        
+    }
+    
+    func test_WhenCreatingThreeByThreeEmm_ShouldHaveTheCorrectLayout() {
+        
+        let pieceUnderTest = Piece(withType: Constants.ThreeByThreeEmm, andId: 1)
+        
+        let expectedRow0 = [nil, Constants.DarkPinkColor, Constants.DarkPinkColor, nil]
+        let expectedRow1 = [Constants.DarkPinkColor, Constants.DarkPinkColor, nil, nil]
+        let expectedRow2 = [Constants.DarkPinkColor, nil, nil, nil]
+        let expectedRow3: [UIColor?] = [nil, nil, nil, nil]
+        let testArray = [expectedRow0, expectedRow1, expectedRow2, expectedRow3]
         
         testRows(pieceUnderTest: pieceUnderTest, testArray: testArray)
         

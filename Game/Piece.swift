@@ -50,14 +50,14 @@ struct Piece {
             
         case Constants.TwoByTwo:
             // 2x2
-            let rowOne = [UIColor.green, UIColor.green, nil, nil]
+            let rowOne = [Constants.LightGreenColor, Constants.LightGreenColor, nil, nil]
             rows[0] = rowOne
             rows[1] = rowOne
             return
             
         case Constants.OneByFour:
             // 1x4
-            let rowOne = [UIColor.purple, nil, nil, nil]
+            let rowOne = [Constants.PurpleColor, nil, nil, nil]
             rows[0] = rowOne
             rows[1] = rowOne
             rows[2] = rowOne
@@ -66,13 +66,13 @@ struct Piece {
             
         case Constants.FourByOne:
             // 4 x 1
-            let rowOne = [UIColor.purple, UIColor.purple, UIColor.purple, UIColor.purple]
+            let rowOne = [Constants.PurpleColor, Constants.PurpleColor, Constants.PurpleColor, Constants.PurpleColor]
             rows[0] = rowOne
             return
             
-        case Constants.OneByFourEll:
-            let rowOne = [UIColor.blue, nil, nil, nil]
-            let rowTwo = [UIColor.blue, UIColor.blue, nil, nil]
+        case Constants.TwoByFourEll:
+            let rowOne = [Constants.DarkBlueColor, nil, nil, nil]
+            let rowTwo = [Constants.DarkBlueColor, Constants.DarkBlueColor, nil, nil]
             rows[0] = rowOne
             rows[1] = rowOne
             rows[2] = rowOne
@@ -80,8 +80,8 @@ struct Piece {
             return
             
         case Constants.TwoByTwoEll:
-            let row0 = [UIColor.white, nil, nil, nil]
-            let row1 = [UIColor.white, UIColor.white, nil, nil]
+            let row0 = [Constants.WhiteColor, nil, nil, nil]
+            let row1 = [Constants.WhiteColor, Constants.WhiteColor, nil, nil]
             let row2: [UIColor?] = [nil, nil, nil, nil]
             rows[0] = row0
             rows[1] = row1
@@ -90,8 +90,8 @@ struct Piece {
             return
 
         case Constants.OneByThreeEll:
-            let row0 = [UIColor.orange, nil, nil, nil]
-            let row1 = [UIColor.orange, UIColor.orange, nil, nil]
+            let row0 = [Constants.OrangeColor, nil, nil, nil]
+            let row1 = [Constants.OrangeColor, Constants.OrangeColor, nil, nil]
             let row2: [UIColor?] = [nil, nil, nil, nil]
             rows[0] = row0
             rows[1] = row0
@@ -100,8 +100,8 @@ struct Piece {
             return
 
         case Constants.ThreeByThreeEll:
-            let row0 = [UIColor.blue, nil, nil, nil]
-            let row1 = [UIColor.blue, UIColor.blue, UIColor.blue, nil]
+            let row0 = [Constants.LightBlueColor, nil, nil, nil]
+            let row1 = [Constants.LightBlueColor, Constants.LightBlueColor, Constants.LightBlueColor, nil]
             let row2: [UIColor?] = [nil, nil, nil, nil]
             rows[0] = row0
             rows[1] = row0
@@ -110,8 +110,8 @@ struct Piece {
             return
 
         case Constants.TwoByThreeCee:
-            let row0 = [UIColor.yellow, UIColor.yellow, nil, nil]
-            let row1 = [UIColor.yellow, nil, nil, nil]
+            let row0 = [Constants.YellowColor, Constants.YellowColor, nil, nil]
+            let row1 = [Constants.YellowColor, nil, nil, nil]
             let row2: [UIColor?] = [nil, nil, nil, nil]
             rows[0] = row0
             rows[1] = row1
@@ -120,8 +120,8 @@ struct Piece {
             return
 
         case Constants.TwoByThreeBee:
-            let row0 = [UIColor.red, nil, nil, nil]
-            let row1 = [UIColor.red, UIColor.red, nil, nil]
+            let row0 = [Constants.RedColor, nil, nil, nil]
+            let row1 = [Constants.RedColor, Constants.RedColor, nil, nil]
             let row2: [UIColor?] = [nil, nil, nil, nil]
             rows[0] = row0
             rows[1] = row1
@@ -130,13 +130,41 @@ struct Piece {
             return
 
         case Constants.ThreeByThreeCross:
-            let row0 = [nil, UIColor.gray, nil, nil]
-            let row1 = [UIColor.gray, UIColor.gray, UIColor.gray, nil]
+            let row0 = [nil, Constants.GreyColor, nil, nil]
+            let row1 = [Constants.GreyColor, Constants.GreyColor, Constants.GreyColor, nil]
             let row2: [UIColor?] = [nil, nil, nil, nil]
             rows[0] = row0
             rows[1] = row1
             rows[2] = row0
             rows[3] = row2
+            return
+
+        case Constants.TwoByFourTee:
+            let row0 = [Constants.LightPinkColor, nil, nil, nil]
+            let row1 = [Constants.LightPinkColor, Constants.LightPinkColor, nil, nil]
+            rows[0] = row0
+            rows[1] = row1
+            rows[2] = row0
+            rows[3] = row0
+            return
+
+        case Constants.TwoByFourWhy:
+            let row0 = [Constants.DarkGreenColor, nil, nil, nil]
+            let row1 = [Constants.DarkGreenColor, Constants.DarkGreenColor, nil, nil]
+            let row2 = [nil, Constants.DarkGreenColor, nil, nil]
+            rows[0] = row0
+            rows[1] = row1
+            rows[2] = row2
+            rows[3] = row2
+            return
+
+        case Constants.ThreeByThreeEmm:
+            let row0 = [nil, Constants.DarkPinkColor, Constants.DarkPinkColor, nil]
+            let row1 = [Constants.DarkPinkColor, Constants.DarkPinkColor, nil, nil]
+            let row2 = [Constants.DarkPinkColor, nil, nil, nil]
+            rows[0] = row0
+            rows[1] = row1
+            rows[2] = row2
             return
             
         default:
