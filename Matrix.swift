@@ -21,11 +21,21 @@ class Matrix {
 
     func rotate(matrix: [[Any?]], byDegrees: Int) -> [[Any?]]? {
         
-        if (byDegrees / 90) != 0 {
+        if (byDegrees % 90) != 0 {
             return nil
         }
         
-        return nil
+        let numberOfRotations = byDegrees / 90
+        
+        var result = matrix
+        
+        for _ in 1...numberOfRotations {
+            
+            result = rotateBy90(originalMatrix: result)
+            
+        }
+        
+        return result
         
     }
 

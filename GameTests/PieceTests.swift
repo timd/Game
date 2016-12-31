@@ -90,43 +90,4 @@ class PieceTests: XCTestCase {
 
     }
     
-    func test_WhenAPieceIsRotated_ShouldBeMutatedSuccessfully() {
-        
-        // Start with standard 2x3-B
-        //  
-        //  X---            XXX-
-        //  XX--    =>      XX--
-        //  xx--            ----
-        //  ----            ----
-        
-        let originalPiece = Piece(withType: Constants.TwoByThreeBee, andId: Constants.TwoByThreeBee)
-        
-        let row0 = [Constants.RedColor, Constants.RedColor, Constants.RedColor, nil]
-        let row1 = [Constants.RedColor, Constants.RedColor, nil, nil]
-        let row2: [UIColor?] = [nil, nil, nil, nil]
-        let row3: [UIColor?] = [nil, nil, nil, nil]
-        let newPiece = [row0, row1, row2, row3]
-        
-        //originalPiece.rotate(by: 90)
-        
-        let rotatedPiece = originalPiece.rotate90Degrees()
-        
-        for rowIndex in 0...originalPiece.rows.count - 1 {
-            
-            let originalRow = originalPiece.rows[rowIndex]
-            let testRow = rotatedPiece[rowIndex]
-            
-            for colIndex in 0...originalRow.count - 1 {
-                
-                let originalCell = originalRow[colIndex]
-                let testCell = testRow[colIndex]
-                
-                XCTAssertEqual(originalCell, testCell, "Expected \(testCell), got \(originalCell)")
-                
-            }
-            
-        }
-        
-    }
-    
 }

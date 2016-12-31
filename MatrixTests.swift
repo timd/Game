@@ -155,5 +155,203 @@ class MatrixTests: XCTestCase {
         }
         
     }
+    
+    func test_WhenAttemptingToRotateByAnArbitraryAmount_ShouldReturnNil() {
 
+        let test = [
+            ["A", "B"],
+            ["C", "D"],
+            ["E", "F"],
+            ["G", "H"]
+        ]
+        
+        let matrixHelper = Matrix()
+        
+        let testMatrix = matrixHelper.rotate(matrix: test, byDegrees: 5)
+
+        XCTAssertNil(testMatrix)
+
+    }
+    
+    func test_whenRotatingBy90Deg_ShouldReturnCorrectRotation() {
+        
+        var test = [
+            ["A", "B"],
+            ["C", "D"],
+            ["E", "F"],
+            ["G", "H"]
+        ]
+        
+        let result = [
+            ["G", "E", "C", "A"],
+            ["H", "F", "D", "B"]
+        ]
+        
+        let matrixHelper = Matrix()
+        
+        let testMatrix = matrixHelper.rotate(matrix: test, byDegrees: 90)
+        
+        for index in 0...(testMatrix!.count - 1) {
+            
+            let needleRow = testMatrix![index]
+            let haystackRow = result[index]
+            
+            for colCount in 0...needleRow.count - 1 {
+                
+                let needle = needleRow[colCount] as! String
+                let haystack = haystackRow[colCount]
+                XCTAssertEqual(needle, haystack)
+                
+            }
+            
+        }
+        
+    }
+
+    func test_whenRotatingBy450Deg_ShouldReturnCorrectRotation() {
+        
+        let test = [
+            ["A", "B"],
+            ["C", "D"],
+            ["E", "F"],
+            ["G", "H"]
+        ]
+        
+        let result = [
+            ["G", "E", "C", "A"],
+            ["H", "F", "D", "B"]
+        ]
+        
+        let matrixHelper = Matrix()
+        
+        let testMatrix = matrixHelper.rotate(matrix: test, byDegrees: 450)
+        
+        for index in 0...(testMatrix!.count - 1) {
+            
+            let needleRow = testMatrix![index]
+            let haystackRow = result[index]
+            
+            for colCount in 0...needleRow.count - 1 {
+                
+                let needle = needleRow[colCount] as! String
+                let haystack = haystackRow[colCount]
+                XCTAssertEqual(needle, haystack)
+                
+            }
+            
+        }
+        
+    }
+    
+    func test_whenRotatingBy180Deg_ShouldReturnCorrectRotation() {
+        
+        let test = [
+            ["A", "B"],
+            ["C", "D"],
+            ["E", "F"],
+            ["G", "H"]
+        ]
+        
+        let result = [
+            ["H", "G"],
+            ["F", "E"],
+            ["D", "C"],
+            ["B", "A"]
+        ]
+
+        
+        let matrixHelper = Matrix()
+        
+        let testMatrix = matrixHelper.rotate(matrix: test, byDegrees: 180)
+        
+        for index in 0...(testMatrix!.count - 1) {
+            
+            let needleRow = testMatrix![index]
+            let haystackRow = result[index]
+            
+            for colCount in 0...needleRow.count - 1 {
+                
+                let needle = needleRow[colCount] as! String
+                let haystack = haystackRow[colCount]
+                XCTAssertEqual(needle, haystack)
+                
+            }
+            
+        }
+        
+    }
+
+    func test_whenRotatingBy270Deg_ShouldReturnCorrectRotation() {
+        
+        let test = [
+            ["A", "B"],
+            ["C", "D"],
+            ["E", "F"],
+            ["G", "H"]
+        ]
+        
+        let result = [
+            ["B", "D", "F", "H"],
+            ["A", "C", "E", "G"]
+        ]
+        
+        let matrixHelper = Matrix()
+        
+        let testMatrix = matrixHelper.rotate(matrix: test, byDegrees: 270)
+        
+        for index in 0...(testMatrix!.count - 1) {
+            
+            let needleRow = testMatrix![index]
+            let haystackRow = result[index]
+            
+            for colCount in 0...needleRow.count - 1 {
+                
+                let needle = needleRow[colCount] as! String
+                let haystack = haystackRow[colCount]
+                XCTAssertEqual(needle, haystack)
+                
+            }
+            
+        }
+        
+    }
+
+    func test_whenRotatingBy360Deg_ShouldReturnCorrectRotation() {
+        
+        let test = [
+            ["A", "B"],
+            ["C", "D"],
+            ["E", "F"],
+            ["G", "H"]
+        ]
+        
+        let result = [
+            ["A", "B"],
+            ["C", "D"],
+            ["E", "F"],
+            ["G", "H"]
+        ]
+        
+        let matrixHelper = Matrix()
+        
+        let testMatrix = matrixHelper.rotate(matrix: test, byDegrees: 360)
+        
+        for index in 0...(testMatrix!.count - 1) {
+            
+            let needleRow = testMatrix![index]
+            let haystackRow = result[index]
+            
+            for colCount in 0...needleRow.count - 1 {
+                
+                let needle = needleRow[colCount] as! String
+                let haystack = haystackRow[colCount]
+                XCTAssertEqual(needle, haystack)
+                
+            }
+            
+        }
+        
+    }
+
+    
 }
