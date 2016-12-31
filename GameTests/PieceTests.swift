@@ -60,6 +60,73 @@ class PieceTests: XCTestCase {
         
     }
     
+    func test_WhenPieceIsReduced_ShouldBeReducedSuccessfully() {
 
+        let originalPiece = Piece(withType: Constants.TwoByThreeBee, andId: Constants.TwoByThreeBee)
+        
+        let row0 = [true, false, false, false]
+        let row1 = [true, true, false, false]
+        let row2 = [true, true, false, false]
+        let row3 = [false, false, false, false]
+        let testPiece = [row0, row1, row2, row3]
+        
+        let returnedPiece: [[Bool]] = originalPiece.reducePiece()
+        
+        for rowIndex in 0...(returnedPiece.count - 1) {
+            
+            let testRow = testPiece[rowIndex]
+            let returnedRow = returnedPiece[rowIndex]
+            
+            for colIndex in 0...(testRow.count - 1) {
+                
+                let testCell = testRow[colIndex]
+                let returnedCell = returnedRow[colIndex]
+                
+                XCTAssertEqual(testCell, returnedCell, "Expecting \(testCell), got \(returnedCell)")
+                
+            }
+            
+        }
+
+    }
+    
+    func test_WhenAPieceIsRotated_ShouldBeMutatedSuccessfully() {
+        
+        // Start with standard 2x3-B
+        //  
+        //  X---            XXX-
+        //  XX--    =>      XX--
+        //  xx--            ----
+        //  ----            ----
+        
+        let originalPiece = Piece(withType: Constants.TwoByThreeBee, andId: Constants.TwoByThreeBee)
+        
+        let row0 = [Constants.RedColor, Constants.RedColor, Constants.RedColor, nil]
+        let row1 = [Constants.RedColor, Constants.RedColor, nil, nil]
+        let row2: [UIColor?] = [nil, nil, nil, nil]
+        let row3: [UIColor?] = [nil, nil, nil, nil]
+        let newPiece = [row0, row1, row2, row3]
+        
+        //originalPiece.rotate(by: 90)
+        
+        let rotatedPiece = originalPiece.rotate90Degrees()
+        
+        for rowIndex in 0...originalPiece.rows.count - 1 {
+            
+            let originalRow = originalPiece.rows[rowIndex]
+            let testRow = rotatedPiece[rowIndex]
+            
+            for colIndex in 0...originalRow.count - 1 {
+                
+                let originalCell = originalRow[colIndex]
+                let testCell = testRow[colIndex]
+                
+                XCTAssertEqual(originalCell, testCell, "Expected \(testCell), got \(originalCell)")
+                
+            }
+            
+        }
+        
+    }
     
 }

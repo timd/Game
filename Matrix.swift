@@ -1,56 +1,37 @@
 //
-//  ViewController.swift
+//  Matrix.swift
 //  Game
 //
-//  Created by Tim on 29/12/16.
+//  Created by Tim on 31/12/16.
 //  Copyright © 2016 duckett.de. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
-class ViewController: UIViewController {
+class Matrix {
 
-    override func viewDidLoad() {
-        
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        
-        let row0 = ["A", "B", "C", "D"]
-        let row1 = ["E", "F", "G", "H"]
-        let row2 = ["I", "J", "K", "L"]
-        let row3 = ["M", "N", "O", "P"]
-        
-        let matrixA = [row0,
-                       row1,
-                       row2,
-                       row3]
-
-        dumpMatrix(theMatrix: matrixA)
-
-        let newMatrix = rotateBy90(originalMatrix: matrixA)
-        
-        dumpMatrix(theMatrix: newMatrix)
-
-        
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     func dumpMatrix(theMatrix: [[Any?]]) {
-
+        
         for rowIndex in 0...(theMatrix.count - 1) {
             let row = theMatrix[rowIndex]
             print(row)
         }
+        
+    }
 
+    func rotate(matrix: [[Any?]], byDegrees: Int) -> [[Any?]]? {
+        
+        if (byDegrees / 90) != 0 {
+            return nil
+        }
+        
+        return nil
+        
     }
 
     func rotateBy90(originalMatrix: [[Any?]]) -> [[Any?]]{
         
-        let numberOfRows = originalMatrix.count       
+        let numberOfRows = originalMatrix.count
         let numberOfCols = originalMatrix[0].count
         
         // Create new matrix
@@ -80,10 +61,9 @@ class ViewController: UIViewController {
             }
             
         }
-
+        
         return newMatrix
         
     }
-    
-}
 
+}

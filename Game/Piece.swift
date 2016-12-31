@@ -40,6 +40,41 @@ struct Piece {
         return row[col]
     }
     
+    func reducePiece() -> [[Bool]] {
+        
+        var returnArray = [[Bool]]()
+        
+        for _ in 0...3 {
+            let row = [false, false, false, false]
+            returnArray.append(row)
+        }
+        
+        for rowIndex in 0...(self.rows.count - 1) {
+            
+            let sourceRow = self.rows[rowIndex]
+            var returnRow = returnArray[rowIndex]
+            
+            for colIndex in 0...(sourceRow.count - 1) {
+                
+                if (sourceRow[colIndex] != nil) {
+                    returnRow[colIndex] = true
+                } else {
+                    returnRow[colIndex] = false
+                }
+                
+            }
+            
+            returnArray[rowIndex] = returnRow
+            
+        }
+        
+        return returnArray
+        
+    }
+    
+    func rotate(by: Int) {
+    }
+    
     mutating func populatePiece(type: Int) {
         
         switch type {
@@ -170,6 +205,68 @@ struct Piece {
         default:
             return
         }
+        
+    }
+    
+//    func rotate(degrees: Int = 90) {
+//        if degrees % 90 != 0 {
+//            NSException(name: NSExceptionName(rawValue: "Disallowed"), reason: "Not able to rotate a matrix \(degrees) degrees", userInfo: nil).raise()
+//        }
+//        
+//        var turns = degrees / 90
+//        
+//        while turns > 0 {
+//            turns -= 1
+//            rotate90Degrees()
+//        }
+//    }
+    
+    func rotate90Degrees() -> [[UIColor?]] {
+        
+        // outer loop - N times where N is the number of elements in the first row
+        let numberOfColsInPiece = rows[0].count
+        
+        for outerLoopCounter in 0...numberOfColsInPiece - 1 {
+            
+            // inner loop - M times where M is the number of rows in the Piece
+            let numberOfRowsInPiece = rows.count
+            
+            for innerLoopCounter in 0...numberOfRowsInPiece - 1 {
+                
+                
+                
+            }
+            
+        }
+        
+        
+        
+        // Create N temporary arrays where N = number of elements in the row
+        var tempArrays = Array(repeating: [UIColor?](), count: rows[0].count)
+        
+        // Iterate across each row
+        for rowIndex in 0...(rows.count - 1) {
+            
+            let donorRow = rows[rowIndex]
+            
+            var relevantRow = [UIColor?]()
+            
+            // Walk across the donor row and put each element in the corresponding
+            for colIndex in 0...(donorRow.count - 1) {
+                
+                // get the relevant row from tempArrays
+                relevantRow = tempArrays[colIndex]
+                
+                // append the current element from the donor row
+                relevantRow.append(donorRow[colIndex])
+                
+            }
+            
+            tempArrays[rowIndex] = relevantRow
+            
+        }
+        
+        return tempArrays
         
     }
     
