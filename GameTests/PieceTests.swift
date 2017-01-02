@@ -35,8 +35,8 @@ class PieceTests: XCTestCase {
         
         let pieceUnderTest = Piece(withType: Constants.TwoByTwo, andId: 1)
 
-        let expectedRow0 = [Constants.LightGreenColor, Constants.LightGreenColor, nil, nil]
-        let expectedRow1 = [Constants.LightGreenColor, Constants.LightGreenColor, nil, nil]
+        let expectedRow0: [UIColor?] = [Constants.LightGreenColor, Constants.LightGreenColor, nil, nil]
+        let expectedRow1: [UIColor?] = [Constants.LightGreenColor, Constants.LightGreenColor, nil, nil]
         let expectedRow2: Array<UIColor?> = [nil, nil, nil, nil]
         let expectedRow3: Array<UIColor?> = [nil, nil, nil, nil]
         let testArray = [expectedRow0, expectedRow1, expectedRow2, expectedRow3]
